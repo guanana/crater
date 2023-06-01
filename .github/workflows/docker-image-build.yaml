@@ -26,7 +26,6 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   build-php:
-    needs: build-test
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
@@ -82,7 +81,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   build-nginx:
-    needs: build-nginx
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
